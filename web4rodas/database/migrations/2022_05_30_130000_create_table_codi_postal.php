@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLinhaMoradaTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateLinhaMoradaTable extends Migration
      */
     public function up()
     {
-        Schema::create('codigoPostal', function (Blueprint $table) {
-           $table->id('id_codigoPostal');
-           $table->string('localidade');
-           
-            $table->timestamps();
+        Schema::create('table_codi_postal', function (Blueprint $table) {
+            $table->id('id');
+            $table->string('localidade');
+            
+             $table->timestamps();
         });
     }
 
@@ -28,6 +28,6 @@ class CreateLinhaMoradaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('linha_morada');
+        Schema::dropIfExists('table_codi_postal');
     }
-}
+};

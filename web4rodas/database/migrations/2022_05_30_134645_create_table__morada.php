@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateMoradaTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,17 @@ class CreateMoradaTable extends Migration
      */
     public function up()
     {
-        Schema::create('morada', function (Blueprint $table) {
+        Schema::create('table__morada', function (Blueprint $table) {
             $table->id();
             $table->string('rua');
             $table->integer('n_porta');
-            $table->integer('andar');
+            $table->string('andar');
+            
+
+            $table->unsignedBigInteger('codigoPostal_id')->unsigned()->nullable();
+            $table->foreign('codigoPostal_id')->references('id')->on('table_codi_postal')->onDelete('cascade');
+
             $table->timestamps();
-
-            $table->integer('id_codigoPostal')->unsigned();
-
-            $table->foreign('id_codigoPostal')->references('id')->on('codigoPostal')->onDelete('cascade');
         });
     }
 
@@ -33,6 +34,6 @@ class CreateMoradaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('morada');
+        Schema::dropIfExists('table__morada');
     }
-}
+};

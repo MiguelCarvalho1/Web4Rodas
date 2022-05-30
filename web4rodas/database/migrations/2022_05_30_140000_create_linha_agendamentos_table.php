@@ -14,12 +14,20 @@ class CreateLinhaAgendamentosTable extends Migration
     public function up()
     {
         Schema::create('linha_agendamentos', function (Blueprint $table) {
-            $table->bigInteger('id_carro')->unsigned()->nullable();
-            $table->foreign('id_carro')->references('id')->on('carro')->onDelete('cascade');
-            $table->bigInteger('id_agenda')->unsigned()->nullable();
-            $table->foreign('id_agenda')->references('id')->on('agendamentos')->onDelete('cascade');
+            $table->unsignedBigInteger('carro_id')->unsigned()->nullable();
+            
+            $table->unsignedBigInteger('agenda_id')->unsigned()->nullable();
+
+            
+            $table->foreign('carro_id')->references('id')->on('carro')->onDelete('cascade');
+            
+            $table->foreign('agenda_id')->references('id')->on('agendamentos')->onDelete('cascade');
+           
             $table->timestamps();
         });
+
+        
+        
     }
 
     /**
