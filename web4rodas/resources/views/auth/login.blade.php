@@ -10,34 +10,28 @@
               <div class="brand-logo">
                 <img src="../../images/logo.svg" alt="logo">
               </div>
-              <h4>Hello! let's get started</h4>
-              <h6 class="fw-light">Sign in to continue.</h6>
+              <h6 class="fw-light">Autenticar</h6>
               <form class="pt-3">
                 <div class="form-group">
-                  <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Username">
+                  <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="nome">
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Password">
+                  <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Palavra-Passe">
                 </div>
                 <div class="mt-3">
-                  <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="../../index.html">SIGN IN</a>
+                  <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="../../index.html">Autenticado</a>
                 </div>
                 <div class="my-2 d-flex justify-content-between align-items-center">
                   <div class="form-check">
                     <label class="form-check-label text-muted">
                       <input type="checkbox" class="form-check-input">
-                      Keep me signed in
+                      Lembrar da Autenticação
                     </label>
                   </div>
-                  <a href="#" class="auth-link text-black">Forgot password?</a>
-                </div>
-                <div class="mb-2">
-                  <button type="button" class="btn btn-block btn-facebook auth-form-btn">
-                    <i class="ti-facebook me-2"></i>Connect using facebook
-                  </button>
+                  <a href="#" class="auth-link text-black">Esqueceu-se da Palavra-Passe?</a>
                 </div>
                 <div class="text-center mt-4 fw-light">
-                  Don't have an account? <a href="register.html" class="text-primary">Create</a>
+                  Não tens Conta? <a href="register.html" class="text-primary">Regista-te</a>
                 </div>
               </form>
             </div>
