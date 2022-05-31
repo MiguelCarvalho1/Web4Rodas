@@ -15,13 +15,13 @@ class CreateLinhaAgendamentosTable extends Migration
     {
         Schema::create('linha_agendamentos', function (Blueprint $table) {
             $table->unsignedBigInteger('carro_id')->unsigned()->nullable();
+            $table->foreign('carro_id')->references('id')->on('table_carro')->onDelete('cascade');
             
             $table->unsignedBigInteger('agenda_id')->unsigned()->nullable();
-
-            
-            $table->foreign('carro_id')->references('id')->on('carro')->onDelete('cascade');
-            
             $table->foreign('agenda_id')->references('id')->on('agendamentos')->onDelete('cascade');
+            
+            
+            
            
             $table->timestamps();
         });
