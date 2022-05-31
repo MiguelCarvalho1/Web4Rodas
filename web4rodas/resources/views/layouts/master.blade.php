@@ -6,10 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>@yield('title')</title>
     <!-- plugins:css -->
-    <link rel="stylesheet" href="{{ asset('public/assets/vendors/iconfonts/mdi/css/materialdesignicons.min.css') }}">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ asset('public/assets/css/shared/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('public/assets/css/demo_1/style.css') }}">
 </head>
 <body>
     <div class="container-scroller">
@@ -35,8 +33,6 @@
     </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
-    <script src="{{ asset('public/assets/vendors/js/vendor.bundle.base.js') }}"></script>
-    <script src="{{ asset('public/assets/js/shared/misc.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- DataTable -->
     <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js" type="text/javascript"></script>

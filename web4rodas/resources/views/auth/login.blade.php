@@ -8,7 +8,7 @@
           <div class="col-lg-4 mx-auto">
             <div class="auth-form-light text-left py-5 px-4 px-sm-5">
               <div class="brand-logo">
-                <img src="../../images/logo.svg" alt="logo">
+                <img src="../../images/car-01.jpg" alt="logo">
               </div>
               <h6 class="fw-light">Autenticar</h6>
               <form class="pt-3">
@@ -19,7 +19,7 @@
                   <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Palavra-Passe">
                 </div>
                 <div class="mt-3">
-                  <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="../../index.html">Autenticado</a>
+                  <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="../../welcome.blade.php">Aceder</a>
                 </div>
                 <div class="my-2 d-flex justify-content-between align-items-center">
                   <div class="form-check">
@@ -31,7 +31,7 @@
                   <a href="#" class="auth-link text-black">Esqueceu-se da Palavra-Passe?</a>
                 </div>
                 <div class="text-center mt-4 fw-light">
-                  Não tens Conta? <a href="register.html" class="text-primary">Regista-te</a>
+                  Não tens Conta? <a href="register" class="text-primary">Regista-te</a>
                 </div>
               </form>
             </div>
@@ -42,18 +42,5 @@
     </div>
     <!-- page-body-wrapper ends -->
   </div>
-  <!-- container-scroller -->
-  <!-- plugins:js -->
-  <script src="../../vendors/js/vendor.bundle.base.js"></script>
-  <!-- endinject -->
-  <!-- Plugin js for this page -->
-  <script src="../../vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
-  <!-- End plugin js for this page -->
-  <!-- inject:js -->
-  <script src="../../js/off-canvas.js"></script>
-  <script src="../../js/hoverable-collapse.js"></script>
-  <script src="../../js/template.js"></script>
-  <script src="../../js/settings.js"></script>
-  <script src="../../js/todolist.js"></script>
-  <!-- endinject -->
+
 @endsection
