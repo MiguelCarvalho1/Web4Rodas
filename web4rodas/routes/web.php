@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Agendamento;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,3 +25,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::get('calendario', [Agendamento::class, 'index']);
+Route::post('calendarioAjax', [Agendamento::class, 'ajax']);

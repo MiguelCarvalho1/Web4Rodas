@@ -10,5 +10,10 @@ class Agendamentos extends Model
     use HasFactory;
     protected $table = "agendamentos";
     protected $guarded = [];
+
+    
+    protected $fillable = [
+        'descricao', 'dataincio', 'datafim'
+    ];
    
 }
