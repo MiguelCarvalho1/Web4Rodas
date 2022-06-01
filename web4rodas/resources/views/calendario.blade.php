@@ -18,7 +18,7 @@
                <h1>Calendario</h1>
             </div>
          </div>
-         <div id='calendario'></div>
+         <div id='calendar'></div>
       </div>
       <script>
          $(document).ready(function () {
@@ -33,7 +33,7 @@
            
          var calendar = $('#calendar').fullCalendar({
                              editable: true,
-                             agendamentos: SITEURL + "/inicial",
+                             agendamentos: SITEURL + "/calendario",
                              displayAgendamentosTime: false,
                              editable: true,
                              agendamentosRender: function (agendamentos, element, view) {
@@ -45,29 +45,30 @@
                              },
                              selectable: true,
                              selectHelper: true,
-                             select: function (dataincio, datafim, allDay) {
+                             select: function (data_incio, data_fim, allDay) {
                                  var descricao = prompt('Titulo de Agendamentos:');
                                  if (descricao) {
-                                     var dataincio = $.calendar.formatDate(dataincio, "DD-MM-YYYY");
-                                     var datafim = $.calendar.formatDate(datafim, "DD-MM-YYYY");
+                                     var data_incio = moment(data_incio, "DD-MM-YYYY").format("DD-MM-YYYY");
+                                     var data_fim = moment(data_fim, "DD-MM-YYYY").format("DD-MM-YYYY");
                                      $.ajax({
-                                         url: SITEURL + "/fullcalenderAjax",
+                                         url: SITEURL + "/calendariorAjax",
+                                         type: "POST",
                                          data: {
-                                             descricao: title,
-                                             dataincio: start,
-                                             datafim: end,
+                                             descricao: descricao,
+                                             data_incio: data_incio,
+                                             data_fim: data_fim,
                                              type: 'add'
                                          },
-                                         type: "POST",
+                                         
                                          success: function (data) {
                                              displayMessage("Agendamento criado com sucesso");
            
                                              calendar.fullCalendar('renderagendamentos',
                                                  {
                                                      id: data.id,
-                                                     descricao: title,
-                                                     dataincio: start,
-                                                     datafim: end,
+                                                     descricao: descricao,
+                                                     data_incio: data_incio,
+                                                     data_fim: data_fim,
                                                      allDay: allDay
                                                  },true);
            
@@ -77,15 +78,16 @@
                                  }
                              },
                              agendamentoDrop: function (agendamento, delta) {
-                                 var dataincio = $.fullCalendar.formatDate(agendamentos.dataincio, "DD-MM-YYYY");
-                                 var datafim = $.fullCalendar.formatDate(agendamentos.datafim, "DD-MM-YYYY");
+                                 var data_incio = moment(data_incio, "DD-MM-YYYY").format("DD-MM-YYYY");
+                                 var data_fim = moment(data_fim, "DD-MM-YYYY").format("DD-MM-YYYY");
            
                                  $.ajax({
-                                     url: SITEURL + '/inicialAjax',
+                                     url: SITEURL + '/calendarioAjax',
+                                     type: "POST",
                                      data: {
-                                        descricao: title,
-                                        dataincio: start,
-                                        datafim: end,
+                                        descricao: descricao,
+                                        data_incio: data_incio,
+                                        data_fim: data_fim,
                                          id: agendamento.id,
                                          type: 'update'
                                      },
@@ -100,7 +102,7 @@
                                  if (deleteMsg) {
                                      $.ajax({
                                          type: "POST",
-                                         url: SITEURL + '/incialAjax',
+                                         url: SITEURL + '/calendarioAjax',
                                          data: {
                                                  id: agendamentos.id,
                                                  type: 'delete'

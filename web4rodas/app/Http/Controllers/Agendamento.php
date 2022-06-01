@@ -5,16 +5,16 @@ use App\Models\Agendamentos;
 
 use Illuminate\Http\Request;
 
-class Agendamento extends Controller
+class Agendamento  extends Controller
 {
     public function index(Request $request)
     {
   
         if($request->ajax()) {
        
-             $data = Agendamentos::whereDate('start', '>=', $request->dataincio)
-                       ->whereDate('end',   '<=', $request->datafim)
-                       ->get(['id', 'title', 'start', 'end']);
+             $data = Agendamentos::whereDate('data_incio', '>=', $request->data_incio)
+                       ->whereDate('data_fim',   '<=', $request->data_fim)
+                       ->get(['id', 'descricao', 'data_incio', 'data_fim']);
   
              return response()->json($data);
         }
@@ -28,27 +28,27 @@ class Agendamento extends Controller
         switch ($request->type) {
            case 'add':
               $agendamentos = Agendamentos::create([
-                  'title' => $request->descricao,
-                  'start' => $request->dataincio,
-                  'end' => $request->datafim
+                  'descricao' => $request->descricao,
+                  'data_incio' => $request->data_incio,
+                  'data_fim' => $request->data_fim
               ]);
               return response()->json($agendamentos);
              break;
   
            case 'update':
               $agendamentos = Agendamentos::find($request->id)->update([
-                'title' => $request->descricao,
-                'start' => $request->dataincio,
-                'end' => $request->datafim
+                'descricao' => $request->descricao,
+                'data_incio' => $request->data_incio,
+                'data_fim' => $request->data_fim
               ]);
  
               return response()->json($agendamentos);
              break;
   
            case 'delete':
-              $event = Agendamentos::find($request->id)->delete();
+              $agendamentos = Agendamentos::find($request->id)->delete();
   
-              return response()->json($event);
+              return response()->json($agendamentos);
              break;
              
            default:

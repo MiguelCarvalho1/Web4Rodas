@@ -13,7 +13,7 @@ class Agendamentos extends Model
 
     
     protected $fillable = [
-        'descricao', 'dataincio', 'datafim'
+        'descricao', 'data_incio', 'data_fim'
     ];
    
 }
