@@ -9,7 +9,7 @@ class CarroController extends Controller
 {
     public function index(){
         $carro= Carros::paginate(4);
-        return view('veiculo/carro', ['carro' => $carro]);
+        return view('veiculo/carro', ['carros' => $carro]);
     }
 
     /*  Função para abrir a view Veiculos, onde é passado um $id como parâmetro.

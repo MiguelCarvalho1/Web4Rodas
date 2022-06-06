@@ -32,23 +32,19 @@
                     <th>Modelo</th>
                     <th>Matricula</th>
                     <th>Lotação</th>
-                    <th>Created at</th>
-                    <th>Updated at</th>
                 </tr>
             </thead>
             <tbody>
-            @foreach($carro as $carro)
+            @foreach($carros as $carro)
                 <tr>
                     <td style="text-align: center; vertical-align: middle">{{$carro->id}}</td>
                     <td style="text-align: justify; vertical-align: middle">{{$carro->marca}}</td>
                     <td style="text-align: justify; vertical-align: middle">{{$carro->modelo}}</td> 
                     <td style="text-align: justify; vertical-align: middle">{{$carro->matricula}}</td>
                     <td style="text-align: justify; vertical-align: middle">{{$carro->lotacao}}</td>
-                    <td style="text-align: center; vertical-align: middle">{{$carro->created_at}}</td>
-                    <td style="text-align: center; vertical-align: middle">{{$carro->updated_at}}</td>
                     <td style="text-align: center; vertical-align: middle">
                         <button class="btn bg-warning text-white" style="width:40px; margin:2px"><a href="/veiculo/editar_carro/{{$carro->id}}" style="color:white"><i class="fa fa-edit"></i></a></button>
-                        <form action="/veiculo/carro/{{$carro->id}}" method="POST">
+                        <form action="/veiculo/carro/{{$carro->id}}" method="GET">
                         @csrf
                         @method('DELETE')
                         <button onclick="return confirm('Pretende apagar a carro &quot {{$carro->modelo}} &quot ?')" type="submit" class="btn  bg-danger text-white" style="width:40px; margin:2px;"><i class="fa fa-trash"></i></button>
@@ -61,7 +57,7 @@
             </tbody>
         </table>
         <div class="d-flex justify-content-center">
-        {{$carro->links('pagination::bootstrap-4')}}
+        {{$carros->links('pagination::bootstrap-4')}}
         </div>
     </div>
 </div>
