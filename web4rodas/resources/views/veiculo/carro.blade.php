@@ -1,4 +1,6 @@
+@extends('layouts.main')
 @section('title', 'Veiculo')
+
 
 @section('content')
 
@@ -35,7 +37,7 @@
                 </tr>
             </thead>
             <tbody>
-            @foreach($carros as $carro)
+            @foreach($carro as $carro)
                 <tr>
                     <td style="text-align: center; vertical-align: middle">{{$carro->id}}</td>
                     <td style="text-align: justify; vertical-align: middle">{{$carro->marca}}</td>
@@ -59,7 +61,7 @@
             </tbody>
         </table>
         <div class="d-flex justify-content-center">
-        {{$carros->links('pagination::bootstrap-4')}}
+        {{$carro->links('pagination::bootstrap-4')}}
         </div>
     </div>
 </div>
