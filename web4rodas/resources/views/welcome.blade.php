@@ -24,6 +24,12 @@
 
     <h1>Pagina Incial</h1>
     
+
+    <a href="{{ url('agendar') }}"> Agendar</a>
+    <a href="{{ url('login') }}"> login</a>
+    <a href="{{ url('/veiculo/carro') }}"> carros</a>
+   
+
        
     </body>
 </html>
