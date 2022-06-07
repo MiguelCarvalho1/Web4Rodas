@@ -26,7 +26,7 @@ class CarroController extends Controller
         É atualizada a Carro com o $id passado através do request.
         Retorna a view "Veiculos-Carro" onde apresenta uma mensagem de sucesso.*/
 
-    public function autilizar_carro(Request $request){
+    public function atualizar_carro(Request $request){
 
         $data = $request->all();
 
