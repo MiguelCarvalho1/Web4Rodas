@@ -1,6 +1,23 @@
-<h1>Olá Mundo </h1>
-<h2>Bem-vindos</h2>
-<h3>Web 4 Rodas</h3>
-<a href="/"> Voltar a Pagína Incial</a>
+<!DOCTYPE html>
+<html lang='pt-pt'>
+  <head>
+    <meta charset='utf-8' />
+    <link href='fullcalendar-scheduler/main.css' rel='stylesheet' />
+    <script src='fullcalendar-scheduler/main.js'></script>
+    <script>
 
+      document.addEventListener('DOMContentLoaded', function() {
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+          initialView: 'resourceTimelineWeek'
+        });
+        calendar.render();
+      });
+
+    </script>
+  </head>
+  <body>
+    <div id='calendar'></div>
+  </body>
+</html>
 
