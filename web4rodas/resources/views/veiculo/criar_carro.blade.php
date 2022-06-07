@@ -6,9 +6,8 @@
 
 <h1>Criar Veiculos:</h1>
     <div class="col-md-6 offset-md-3">
-        <form action="/veiculo/carro" method="GET" enctype="multipart/form-data" name="Form" onsubmit="return validateForm()">
+        <form action="/veiculo/carro" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return validateForm()">
         @csrf
-        @method('GET')
         <div class="form-group">
                 <label for="marca">Marca: *</label>
                 <input type="text" class="form-control" id="marca" name="marca" placeholder="Marca" >
@@ -27,10 +26,10 @@
             </div>
            
             <input type="submit" class="btn btn-primary" value="Criar Carro">
-        </form>
+        
             
-</div>
-<br>
+    </div>
+
 @endsection
 
 <script type="text/javascript">
