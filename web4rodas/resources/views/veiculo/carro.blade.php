@@ -43,6 +43,7 @@
                     <td style="text-align: justify; vertical-align: middle">{{$carro->matricula}}</td>
                     <td style="text-align: justify; vertical-align: middle">{{$carro->lotacao}}</td>
                     <td style="text-align: center; vertical-align: middle">
+                        @method('UPDATE')
                         <button class="btn bg-warning text-white" style="width:40px; margin:2px"><a href="/veiculo/editar_carro/{{$carro->id}}" style="color:white"><i class="fa fa-edit"></i></a></button>
                         <form action="/veiculo/carro/{{$carro->id}}" method="GET">
                         @csrf

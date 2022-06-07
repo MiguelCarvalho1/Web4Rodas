@@ -12,6 +12,33 @@ class CarroController extends Controller
         return view('veiculo/carro', ['carros' => $carro]);
     }
 
+
+        /*  Função responsável por renderizar a view Criar Notícia.*/
+        public function criar_carro(){
+            return view('veiculo/criar_carro');
+        }
+    
+        /*  Função responsável por enviar os dados para a Tabela "carro".
+            A variável $carro é uma nova carro. "carro" é o Model.
+            Preenche todos os campos da tabela "carro" com os valores que vem no request
+            Faz o save() para enviar os dados.
+            Redireciona para a view "Veiculo-carro" onde apresenta uma mensagem de sucesso.*/
+        public function store(Request $request){
+            $carro = new Carros;
+    
+            $carro -> marca = $request->marca;
+            $carro -> modelo= $request->modelo;
+            $carro -> matricula = $request->matricula;
+            $carro -> lotacao = $request->lotacao;
+           
+    
+    
+            $carro->save();
+    
+            return redirect('/veiculo/carro')->with('msg', 'Carro criado com sucesso!');
+        }
+    
+
     /*  Função para abrir a view Veiculos, onde é passado um $id como parâmetro.
         A variável $carro guarda a carro com o $id passado como parâmetro.
         Retorna a view "Veiculos - Editar ".*/
