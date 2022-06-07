@@ -1,19 +1,21 @@
-@section('title', 'Veiculo - Editar carro . $carro->marca')
+@extends('layouts.main')
+@section('title', 'Veiculo - Editar carro . $carro->id')
+
 
 @section('content')
 
-<h1>Editar Veiculos: {{$carro->marca}}</h1>
+<h1>Editar Veiculos: {{$carro->id}}</h1>
     <div class="col-md-6 offset-md-3">
-        <form action="/veiculo/atualizar_carro/{{$carro->id}}" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return validateForm()">
+        <form action="/veiculo/atualizar_carro/{{$carro->id}}" method="GET" enctype="multipart/form-data" name="Form" onsubmit="return validateForm()">
         @csrf
-        @method('PUT')
+        @method('GET')
         <div class="form-group">
-                <label for="marca">Modelo: *</label>
-                <input type="text" class="form-control" id="marca" name="marca" placeholder="modelo" value="{{$carro->marca}}">
+                <label for="marca">Marca: *</label>
+                <input type="text" class="form-control" id="marca" name="marca" placeholder="Marca" value="{{$carro->marca}}">
             </div>
             <div class="form-group">
                 <label for="modelo">Modelo: *</label>
-                <input type="modelo" class="form-control" id="modelo" name="modelo" placeholder="modelo" value="{{$carro->modelo}}">
+                <input type="modelo" class="form-control" id="modelo" name="modelo" placeholder="Modelo" value="{{$carro->modelo}}">
             </div>
             <div class="form-group">
                 <label for="matricula">Matricula: *</label>
