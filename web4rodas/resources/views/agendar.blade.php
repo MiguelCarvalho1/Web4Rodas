@@ -1,42 +1,39 @@
-<h1>Agendar </h1>
+@extends('layouts.main')
+<h1>Agendamentos</h1>
 
 <form>
-    <div>Agendamentos</div>
-      <div>
-          <label>Enter Time</label>
-          <input type="" class="required" id="start-time" />
-          <!--  start hour
-            select dropdown for am/pm  --> 
-          <label>To</label>
-          <input type="" class="required" id="end-time" />
-          <!-- end hour
-          // select dropdown for am/pm --> 
-      </div>
+  <fieldset>
       <div>
         <!-- These should be formatted as Dates -->
-        <label>Start Date</label>
-        <input type="" class="required" id="start-date" />
-        <label>End Date</label>
-        <input type="" class="required" id="end-date" />
+        <label>Data início</label>
+        <input type="date" class="required" id="start-date" />
+        
+        <label>Data fim</label>
+        <input type="date" class="required" id="end-date" />
+       
+      </div>
+      <br>
+      <div>
+      <div>
+        <label>Descrição</label>
+        <textarea rows = "8" cols = "60" name = "descricao">
+       </textarea>
       </div>
       <div>
-        <div>Price</div>
-        <label>Price per</label>
-        <input type="" class="required" id="price" />
+        <br>
+        <label>Motorista</label>
+        <input type="text" id="instructor"/>
+        <br>
       </div>
       <div>
-        <div>Details</div>
-        <label>Number of Spots</label>
-        <input type="" class="required" id="num-spots"/>
+        <br>
+        <label>Veículo</label>
+        <input type="text" id="instructor"/>
       </div>
-      <div>
-        <label>Instructor (Optional)</label>
-        <input type="" id="instructor"/>
-      </div>
+      <br>
       <div class="button">
-        <button id="save" type="submit">Save</button>
+        <button id="save" type="submit">Guardar</button>
       </div>
-  </form>
-  <br>
-  <br>
+    </fieldset>
+     <br>
   

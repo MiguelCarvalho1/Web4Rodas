@@ -12,11 +12,6 @@ class Main extends Controller
         return view('home');
     }
 
-    public function agendar()
-    {
-       return view('agendar');
-    }
-
     
 
 }
