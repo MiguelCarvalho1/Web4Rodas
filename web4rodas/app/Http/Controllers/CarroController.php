@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Carros;
+use App\Models\Veiculo;
 
 class CarroController extends Controller
 {
     public function index(){
         $carro= Carros::paginate(4);
-        return view('veiculo/carro', ['carros' => $carro]);
+
+      /*  $tipoveiculo = Veiculo::where('descricao_tipo',$carro->tipo_id)->toArray();*/
+
+    return view('veiculo/carro', ['carros' => $carro, /*'tipoveiculo'=>$tipoveiculo*/]);
     }
 
 
@@ -30,6 +34,8 @@ class CarroController extends Controller
             $carro -> modelo= $request->modelo;
             $carro -> matricula = $request->matricula;
             $carro -> lotacao = $request->lotacao;
+
+          
            
     
     
@@ -69,5 +75,7 @@ class CarroController extends Controller
             Carros::findOrFail($id)->delete();
             return redirect('veiculo/carro')->with('msg', 'Carro apagado com sucesso!');
         }
+
+
 
 }
