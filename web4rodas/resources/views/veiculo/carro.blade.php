@@ -40,7 +40,7 @@
             @foreach($carros as $carro)
                 <tr>
                     <td style="text-align: center; vertical-align: middle">{{$carro->id}}</td>
-                    <td style="text-align: justify; vertical-align: middle">{{$carro->marca}}</td>
+                    <td style="text-align: justify; vertical-align: middle">{{$carro->Marca}}</td>
                     <td style="text-align: justify; vertical-align: middle">{{$carro->modelo}}</td> 
                     <td style="text-align: justify; vertical-align: middle">{{$carro->matricula}}</td>
                     <td style="text-align: justify; vertical-align: middle">{{$carro->lotacao}}</td>

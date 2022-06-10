@@ -11,9 +11,10 @@ class CarroController extends Controller
     public function index(){
         $carro= Carros::paginate(4);
 
-      /*  $tipoveiculo = Veiculo::where('descricao_tipo',$carro->tipo_id)->toArray();*/
+      /*  $tipoveiculo = Veiculo::where('descricao_tipo',$carro->tipo_id)->toArray();
+      $tipo = Veiculo::where('tipo_id', $carro->tipo_id)->get();*/
 
-    return view('veiculo/carro', ['carros' => $carro, /*'tipoveiculo'=>$tipoveiculo*/]);
+    return view('veiculo/carro', ['carros' => $carro]);
     }
 
 
