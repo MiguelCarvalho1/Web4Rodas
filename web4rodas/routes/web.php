@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CarroController;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\AgendamentoController;
+use App\Http\Controllers\AgendamentosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,10 +32,8 @@ Route::get('/inicial', function () {
 });
 
 /*Agendamento*/
-//Route::get('/agendar', [AgendamentosController::class, 'agendar']);
-Route::get('/agendar', function(){
-    return view('agendar');
-});
+Route::get('/agendar', [AgendamentosController::class, 'index']);
+Route::Post('/agendar', [AgendamentosController::class, 'store']);
 
 
 Route::get('/', function () {
