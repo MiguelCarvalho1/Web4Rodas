@@ -12,7 +12,7 @@ class Carros extends Model
     protected $guarded = [];
 
     public function tipo() {
-        return $this->BelongsTo('App\Models\Veiculo', 'id');
+        return $this->hasOne('App\Models\Veiculo', 'id');
     }
     
 }
