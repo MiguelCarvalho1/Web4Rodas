@@ -24,6 +24,16 @@
                 <label for="lotacao">Lotação: *</label>
                 <input type="text" class="form-control" id="lotacao" name="lotacao" placeholder="Lotação">
             </div>
+
+            <div class="form-group">
+              <label for="tipo_id">Tipo de Veiculo:</label>
+              <select name="tipo" id="tipo_id" class="from-group">
+                  <option value="3">D-Autocarro</option>
+                  <option value="2">C-Camião</option>
+                  <option value="1">B-Carro</option>
+                  <option value="0">A-Moto</option>
+              </select>
+          </div>
            
             <input type="submit" class="btn btn-primary" value="Criar Carro">
         
@@ -38,10 +48,12 @@
     var modelo = document.forms["Form"]["modelo"].value;
     var matricula = document.forms["Form"]["matricula"].value;
     var lotacao = document.forms["Form"]["lotacao"].value;
+    var tipo_id = document.forms["Form"]["tipo_id"].value;
     if (marca == null || marca == "", 
         modelo == null || modelo == "",
         matricula == null || matricula == "",
-        lotacao == null || lotacao == "") {
+        lotacao == null || lotacao == "",
+        tipo_id== null || tipo_id== "") {
       alert("Por favor, preencha todos os campos obrigatórios (*)");
       return false;
     }

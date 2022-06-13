@@ -35,6 +35,7 @@ class CarroController extends Controller
             $carro -> modelo= $request->modelo;
             $carro -> matricula = $request->matricula;
             $carro -> lotacao = $request->lotacao;
+            $carro -> tipo_id = $request->tipo_id;
 
           
            
