@@ -21,15 +21,17 @@
                       <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Palavra-Passe">
                     </div>
                     <div class="mt-3">
-                      <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="../../veiculo/carro">Entrar</a>
-                    </div>
-                    <div class="my-2 d-flex justify-content-between align-items-center">
                       <div class="form-check">
                         <label class="form-check-label text-muted">
                           <input type="checkbox" class="form-check-input">
                           Lembrar da Autenticação
                         </label>
                       </div>
+                    </div>
+                    <div class="mt-3">
+                      <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="../../veiculo/carro">Entrar</a>
+                    </div>
+                    <div class="mt-2">
                       <a href="#" class="auth-link text-black">Esqueceu-se da Palavra-Passe?</a>
                     </div>
                     <div class="text-center mt-4 fw-light">
