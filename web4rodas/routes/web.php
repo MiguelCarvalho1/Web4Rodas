@@ -19,6 +19,8 @@ use App\Http\Controllers\AgendamentoController;
 
 /*Carro*/
 Route::get('/veiculo/carro', [CarroController::class, 'index']);
+Route::get('/veiculo/criar_carro', [CarroController::class, 'criar_carro']);
+Route::post('/veiculo/carro', [CarroController::class, 'store']);
 Route::get('/veiculo/editar_carro/{id}', [CarroController::class, 'editar_carro']);
 Route::get('/veiculo/atualizar_carro/{id}', [CarroController::class, 'atualizar_carro']);
 Route::delete('/veiculo/carro/{id}', [CarroController::class, 'apagar_carro']);
