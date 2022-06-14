@@ -11,8 +11,8 @@ class Carros extends Model
     protected $table = "table_carro";
     protected $guarded = [];
 
-    public function tipo() {
-        return $this->hasOne('App\Models\Veiculo', 'id');
-    }
+   /* public function tipo() {
+        return $this->belongsToMany('App\Models\Veiculo', 'id');
+    }*/
     
 }
