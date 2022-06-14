@@ -10,10 +10,10 @@ class MotoristaController extends Controller
     public function motorista(){
         $motorista= Motorista::paginate(4);
 
-      /*  $tipomotorista = motorista::where('descricao_tipo',$motorista->cartacondu)->toArray();
-      $tipo = motorista::where('cartacondu', $motorista->cartacondu)->get();*/
+      /*  $tipomotorista = motorista::where('descricao_tipo',$motorista->cartaCondu)->toArray();
+      $tipo = motorista::where('cartaCondu', $motorista->cartaCondu)->get();*/
 
-    return view('motorista/motorista', ['motorista' => $motorista]);
+    return view('motorista/motorista', ['motoristas' => $motorista]);
     }
 
 
@@ -32,9 +32,9 @@ class MotoristaController extends Controller
     
             $motorista -> nome = $request->nome;
             $motorista -> nif= $request->nif;
-            $motorista -> telefone = $request->telefone;
+            $motorista -> telemovel = $request->telemovel;
             $motorista -> email = $request->email; 
-            $motorista -> cartacondu = $request->cartacondu;
+            $motorista -> cartaCondu = $request->cartaCondu;
 
           
            
@@ -42,7 +42,7 @@ class MotoristaController extends Controller
     
             $motorista->save();
     
-            return redirect('/motorista/motorista')->with('msg', 'motorista criado com sucesso!');
+            return redirect('/motorista/motorista')->with('msg', 'Motorista criado com sucesso!');
         }
     
 
@@ -65,7 +65,7 @@ class MotoristaController extends Controller
         $data = $request->all();
 
         Motorista::findOrFail($request->id)->update($data);
-        return redirect('motorista/motorista')->with('msg', 'motorista atualizado com sucesso!');
+        return redirect('motorista/motorista')->with('msg', 'Motorista atualizado com sucesso!');
 
     }
 

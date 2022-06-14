@@ -19,7 +19,7 @@
                 @endif
 </div>
 
-<h1>motorista</h1>
+<h1>Motorista</h1>
 
 
 <div class="card-body">
@@ -27,9 +27,9 @@
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead style="text-align: center;">
                 <tr>
-                    <th class="sorting_desc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending" style="width: 102px;" aria-sort="descending">Mome</th>
+                    <th>Nome</th>
                     <th>Nif</th>
-                    <th>Telefone</th>
+                    <th>Telemovel</th>
                     <th>Email</th>
                     <th>Carta de Condução</th>
                     <th>Ações</th>
@@ -40,20 +40,14 @@
                 <tr>
                     <td style="text-align: justify; vertical-align: middle">{{$motorista->nome}}</td>
                     <td style="text-align: justify; vertical-align: middle">{{$motorista->nif}}</td> 
-                    <td style="text-align: justify; vertical-align: middle">{{$motorista->telefone}}</td>
+                    <td style="text-align: justify; vertical-align: middle">{{$motorista->telemovel}}</td>
                     <td style="text-align: justify; vertical-align: middle">{{$motorista->email}}</td>
-                    <td style="text-align: justify; vertical-align: middle">{{$motorista->cartacondu}}</td>
+                    <td style="text-align: justify; vertical-align: middle">{{$motorista->cartaCondu}}</td>
                     <!--td style="text-align: justify; vertical-align: middle"><a {{--$motorista->tipo_id}}>{{$motorista->tipo->descricao_tipo--}}</a></td--> 
                    <td style="text-align: center; vertical-align: middle"> 
-                        @method('UPDATE')
+                       
                         <button class="btn bg-warning text-white" style="width:40px; margin:2px"><a href="/motorista/editar_motorista/{{$motorista->id}}" style="color:white"><i class="fa fa-edit"></i></a></button>
                         <form action="/motorista/motorista/{{$motorista->id}}" method="GET">
-                        @csrf
-                        @method('DELETE')
-                        <button onclick="return confirm('Pretende apagar a motorista &quot {{$motorista->nome}} &quot ?')" type="submit" class="btn  bg-danger text-white" style="width:40px; margin:2px;"><i class="fa fa-trash"></i></button>
-                        
-                        
-                        
                     </td>
                 </tr>
             @endforeach

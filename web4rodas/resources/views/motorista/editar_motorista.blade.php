@@ -1,12 +1,12 @@
 @extends('layouts.main')
-@section('title', 'Motorista - Editar motorista')
+@section('title', 'Motorista - Editar Motorista')
 
 
 @section('content')
 
 <h1>Editar Motoristas:{{$motorista->id}}</h1>
     <div class="col-md-6 offset-md-3">
-        <form action="/motorista/motorista/{{$carro->id}}" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return validateForm()">
+        <form action="/motorista/motorista/{{$motorista->id}}" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return validateForm()">
         @csrf
         <div class="form-group">
                 <label for="nome">Nome: *</label>
@@ -17,8 +17,8 @@
                 <input type="nif" class="form-control" id="nif" name="nif" placeholder="Nif" >
             </div>
             <div class="form-group">
-                <label for="telefone">Telefone: *</label>
-                <input type="text" class="form-control" id="telefone" name="telefone" placeholder="Telefone" >
+                <label for="telemovel">Telemovel: *</label>
+                <input type="text" class="form-control" id="telemovel" name="telemovel" placeholder="Telemovel" >
             </div>
             <div class="form-group">
                 <label for="email">Email: *</label>
@@ -26,8 +26,8 @@
             </div>
 
             <div class="form-group">
-              <label for="cartacondu">Carta de Condução: *</label>
-              <input type="text" class="form-control" id="cartacondu" name="cartacondu" placeholder="Carta de Condução">
+              <label for="cartaCondu">Carta de Condução: *</label>
+              <input type="text" class="form-control" id="cartaCondu" name="cartaCondu" placeholder="Carta de Condução">
           </div>
 
            
@@ -42,14 +42,14 @@
   function validateForm() {
     var nome = document.forms["Form"]["nome"].value;
     var nif = document.forms["Form"]["nif"].value;
-    var telefone = document.forms["Form"]["telefone"].value;
+    var telemovel = document.forms["Form"]["telemovel"].value;
     var email = document.forms["Form"]["email"].value;
-    var cartacondu = document.forms["Form"]["cartacondu"].value;
+    var cartaCondu = document.forms["Form"]["cartaCondu"].value;
     if (nome == null || nome == "", 
         nif == null || nif == "",
-        telefone == null || telefone == "",
+        telemovel == null || telemovel == "",
         email == null || email == "",
-        cartacondu:== null || cartacondu== "") {
+        cartaCondu:== null || cartaCondu== "") {
       alert("Por favor, preencha todos os campos obrigatórios (*)");
       return false;
     }

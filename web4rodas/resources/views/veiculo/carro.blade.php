@@ -27,7 +27,7 @@
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead style="text-align: center;">
                 <tr>
-                    <th class="sorting_desc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending" style="width: 102px;" aria-sort="descending">Marca</th>
+                    <th>Marca</th>
                     <th>Modelo</th>
                     <th>Matricula</th>
                     <th>Lotação</th>
@@ -47,11 +47,6 @@
                         @method('UPDATE')
                         <button class="btn bg-warning text-white" style="width:40px; margin:2px"><a href="/veiculo/editar_carro/{{$carro->id}}" style="color:white"><i class="fa fa-edit"></i></a></button>
                         <form action="/veiculo/carro/{{$carro->id}}" method="GET">
-                        @csrf
-                        @method('DELETE')
-                        <button onclick="return confirm('Pretende apagar a carro &quot {{$carro->matricula}} &quot ?')" type="submit" class="btn  bg-danger text-white" style="width:40px; margin:2px;"><i class="fa fa-trash"></i></button>
-                        
-                        
                         
                     </td>
                 </tr>
