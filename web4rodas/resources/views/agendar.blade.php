@@ -40,15 +40,15 @@
                 <label for="modelo">Descrição: *</label>
                 <textarea rows = "8" cols = "60" class="form-control" name = "descricao" placeholder="Descricão"></textarea>
             </div>
-           <!-- <div class="form-group">
-                <label for="condutor">Condutor: *</label>
-                <input type="text" class="form-control" id="condutor" name="condutor" placeholder="Condutor" >
+            <div class="form-group">
+                <label for="motorista">Motorista: *</label>
+                <input type="text"  class="form-control" id="motorista" name="motorista" placeholder="Motorista" >
             </div>
             <div class="form-group">
                 <label for="veiculo">Veículo: *</label>
                 <input type="text" class="form-control" id="veiculo" name="veiculo" placeholder="Veículo">
             </div>
-          -->
+          
             <input type="submit" class="btn btn-primary" value="Criar Agendamento">
         
             
@@ -62,14 +62,14 @@
     var data_incio = document.forms["Form"]["data_inicio"].value;
     var data_fim = document.forms["Form"]["data_fim"].value;
     var descricao = document.forms["Form"]["descricao"].value;
-   // var condutor = document.forms["Form"]["condutor"].value;
-  //  var veiculo = document.forms["Form"]["veiculo"].value;
+    var motorista = document.forms["Form"]["condutor"].value;
+    var veiculo = document.forms["Form"]["veiculo"].value;
     if (nome == null || nome == "",
       data_incio == null || data_incio == "", 
         data_fim == null || data_fim == "",
-        descricao == null || descricao == ""){
-        //condutor == null || condutor == "",
-        //veiculo == null || veiculo == "") {
+        descricao == null || descricao == "",
+          motorista == null || motorista == "",
+        veiculo == null || veiculo == "") {
       alert("Por favor, preencha todos os campos obrigatórios (*)");
       return false;
     }
