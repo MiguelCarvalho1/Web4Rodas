@@ -14,14 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('agendamentos', function (Blueprint $table) {
-            $table->unsignedBigInteger('id_motorista')->unsigned()->nullable();
-    
-            $table->foreign('id_motorista')->references('id')->on('table_motorista')->onDelete('cascade');
-
-            $table->unsignedBigInteger('id_carro')->unsigned()->nullable();
-    
-            $table->foreign('id_carro')->references('id')->on('table_carro')->onDelete('cascade');
-
+            $table->string('nome');
         });
     }
 
@@ -33,11 +26,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('agendamentos', function (Blueprint $table) {
-            
-            $table->dropColumn('id_motorista')->unsigned()->nullable();
-
-            $table->dropColumn('id_carro')->unsigned()->nullable();
-
+            $table->dropColumn('nome');
         });
     }
 };

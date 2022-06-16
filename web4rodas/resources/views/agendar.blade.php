@@ -4,10 +4,30 @@
 
 @section('content')
 
+<div class="row">
+  @if(session("msg"))
+      <p class="msg" style="background-color: #8df0a4;
+                              color: #04270c;
+                              border: 1px solid #daf2e0;
+                              width: 100%;
+                              margin-bottom: 0;
+                              text-align: center;
+                              padding: 10px;
+                              margin:10px;">
+                              {{session('msg')}}
+      </p>
+  @endif
+</div>
+
+
 <h1>Criar Agendamentos:</h1>
     <div class="col-md-6 offset-md-3">
         <form action="/agendar" method="POST" enctype="multipart/form-data" name="Form" onsubmit="return validateForm()">
         @csrf
+        <div class="form-group">
+          <label for="modelo">Nome do Evento: *</label>
+          <input type="text "class="form-control" name = "nome" placeholder="Nome do Evento">
+          </div>
         <div class="form-group">
                 <label for="data_inicio">Data Ínicio: *</label>
                 <input type="date" class="form-control" id="data_incio" name="data_inicio" placeholder="Data_inicio" >
@@ -38,12 +58,14 @@
 
 <script type="text/javascript">
   function validateForm() {
+    var nome = document.forms["Form"]["nome"].value;
     var data_incio = document.forms["Form"]["data_inicio"].value;
     var data_fim = document.forms["Form"]["data_fim"].value;
     var descricao = document.forms["Form"]["descricao"].value;
    // var condutor = document.forms["Form"]["condutor"].value;
   //  var veiculo = document.forms["Form"]["veiculo"].value;
-    if (data_incio == null || data_incio == "", 
+    if (nome == null || nome == "",
+      data_incio == null || data_incio == "", 
         data_fim == null || data_fim == "",
         descricao == null || descricao == ""){
         //condutor == null || condutor == "",

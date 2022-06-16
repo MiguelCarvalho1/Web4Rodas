@@ -26,6 +26,7 @@ class AgendamentosController extends Controller
     public function store(Request $request){
         $agendamento = new Agendamentos();
     
+        $agendamento -> nome = $request->nome;
         $agendamento -> data_inicio = $request->data_inicio;
         $agendamento -> data_fim= $request->data_fim;
         $agendamento -> descricao = $request->descricao;
@@ -40,13 +41,6 @@ class AgendamentosController extends Controller
     
         return redirect('/agendar')->with('msg', 'Agendamento criado com sucesso!');
     }
-    
-    
-    
-    
-    
-    
-    
     
     
     }

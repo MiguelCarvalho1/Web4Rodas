@@ -5,6 +5,7 @@ use App\Http\Controllers\CarroController;
 use App\Http\Controllers\MotoristaController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AgendamentosController;
+use App\Http\Controllers\CalendarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,6 +48,11 @@ Route::get('/inicial', function () {
 /*Agendamento*/
 Route::get('/agendar', [AgendamentosController::class, 'index']);
 Route::Post('/agendar', [AgendamentosController::class, 'store']);
+
+
+/*Calendário */
+Route::get('calendario', [CalendarioController::class, 'index']);
+
 
 
 Route::get('/login', function () {
