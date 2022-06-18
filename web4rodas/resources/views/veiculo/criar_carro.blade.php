@@ -28,10 +28,9 @@
             <div class="form-group">
               <label for="tipo_id">Tipo de Veiculo:</label>
               <select name="tipo" id="tipo_id" class="from-group">
-                  <option value="3">D-Autocarro</option>
-                  <option value="2">C-Camião</option>
-                  <option value="1">B-Carro</option>
-                  <option value="0">A-Moto</option>
+                @foreach ($tipos as $tipo)
+                <option value="{{$tipo->id}}">{{$tipo->descricao_tipo}}</option>
+            @endforeach
               </select>
           </div>
            

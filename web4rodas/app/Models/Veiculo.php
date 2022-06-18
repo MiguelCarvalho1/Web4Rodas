@@ -10,4 +10,8 @@ class Veiculo extends Model
     use HasFactory;
     protected $table = "tipo_veiculo";
     protected $guarded = [];
+
+    public function tipo(){
+        return $this->hasMany(Carros::class);
+    }
 }

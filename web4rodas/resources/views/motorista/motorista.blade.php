@@ -59,5 +59,5 @@
         </div>
     </div>
 </div>
-<button class="btn btn-primary" style="color:white"><a href="/motorista/criar_motorista">Criar Motorista</button>
+<a class="btn btn-primary" href="/veiculo/criar_carro">Criar Motorista</a>
 @endsection

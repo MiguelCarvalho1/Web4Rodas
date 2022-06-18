@@ -11,7 +11,7 @@
         @method('GET')
         <div class="form-group">
                 <label for="marca">Marca: *</label>
-                <input type="text" class="form-control" id="marca" name="marca" placeholder="Marca" value="{{$carro->marca}}">
+                <input type="text" class="form-control" id="Marca" name="marca" placeholder="Marca" value="{{$carro->Marca}}">
             </div>
             <div class="form-group">
                 <label for="modelo">Modelo: *</label>
@@ -25,6 +25,15 @@
                 <label for="lotacao">Lotação: *</label>
                 <input type="text" class="form-control" id="lotacao" name="lotacao" placeholder="Lotação" value="{{$carro->lotacao}}">
             </div>
+
+            <div class="form-group">
+              <label for="tipo_id">Tipo de Veiculo:</label>
+              <select name="tipo" id="tipo_id" class="from-group">
+                @foreach ($tipos as $tipo)
+                <option value="{{$tipo->id}}">{{$tipo->descricao_tipo}}</option>
+            @endforeach
+              </select>
+          </div>
            
             <input type="submit" class="btn btn-primary" value="Editar carro">
         </form>
@@ -39,10 +48,12 @@
     var modelo = document.forms["Form"]["modelo"].value;
     var matricula = document.forms["Form"]["matricula"].value;
     var lotacao = document.forms["Form"]["lotacao"].value;
+    var tipo_id = document.forms["Form"]["tipo_id"].value;
     if (marca == null || marca == "", 
         modelo == null || modelo == "",
         matricula == null || matricula == "",
-        lotacao == null || lotacao == "") {
+        lotacao == null || lotacao == "",
+        tipo_id== null || tipo_id== "") {
       alert("Por favor, preencha todos os campos obrigatórios (*)");
       return false;
     }

@@ -42,12 +42,22 @@
                     <td style="text-align: justify; vertical-align: middle">{{$carro->modelo}}</td> 
                     <td style="text-align: justify; vertical-align: middle">{{$carro->matricula}}</td>
                     <td style="text-align: justify; vertical-align: middle">{{$carro->lotacao}}</td>
-                    <!--td style="text-align: justify; vertical-align: middle"><a {{--$carro->tipo_id}}>{{$carro->tipo->descricao_tipo--}}</a></td--> 
-                   <td style="text-align: center; vertical-align: middle"> 
+                    
+                    @foreach($tipos as $tipo)
+                    <td style="text-align: justify; vertical-align: middle">
+                        <a >
+                            {{$tipo->descricao_tipo}}
+                        </a>
+                    </td> 
+                    @endforeach
+                  
+                    <td style="text-align: center; vertical-align: middle"> 
                         @method('UPDATE')
-                        <button class="btn bg-warning text-white" style="width:40px; margin:2px"><a href="/veiculo/editar_carro/{{$carro->id}}" style="color:white"><i class="fa fa-edit"></i></a></button>
-                        <form action="/veiculo/carro/{{$carro->id}}" method="GET">
-                        
+                        <button class="btn bg-warning text-white" style="width:40px; margin:2px">
+                            <a href="/veiculo/editar_carro/{{$carro->id}}" style="color:white">
+                                <i class="fa fa-edit"></i>
+                            </a>
+                        </button>
                     </td>
                 </tr>
             @endforeach
@@ -59,5 +69,5 @@
         </div>
     </div>
 </div>
-<button class="btn btn-primary" style="color:white"><a href="/veiculo/criar_carro">Criar Carro</button>
+<a class="btn btn-primary" href="/veiculo/criar_carro">Criar Carro</a>
 @endsection

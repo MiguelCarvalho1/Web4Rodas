@@ -3,24 +3,34 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Models\Carros;
+use \Illuminate\Support\Facades\DB;
 use App\Models\Veiculo;
+
 
 class CarroController extends Controller
 {
     public function index(){
         $carro= Carros::paginate(4);
 
-      /*  $tipoveiculo = Veiculo::where('descricao_tipo',$carro->tipo_id)->toArray();
-      $tipo = Veiculo::where('tipo_id', $carro->tipo_id)->get();*/
+        $tipo = DB::table('tipo_veiculo')
+        ->select('descricao_tipo')
+        ->get();
 
-    return view('veiculo/carro', ['carros' => $carro]);
+
+    return view('veiculo/carro', ['carros' => $carro, 'tipos'=>$tipo]);
     }
 
 
-        /*  Função responsável por renderizar a view Criar Notícia.*/
+        /*  Função responsável por renderizar a view Criar Carro.*/
         public function criar_carro(){
-            return view('veiculo/criar_carro');
+
+            $tipo = DB::table('tipo_veiculo')
+            ->select('id','descricao_tipo')
+            ->get();
+
+            return view('veiculo/criar_carro' , ['tipos'=> $tipo]);
         }
     
         /*  Função responsável por enviar os dados para a Tabela "carro".
@@ -53,7 +63,12 @@ class CarroController extends Controller
 
     public function editar_carro($id){
         $carro = carros::findOrFail($id);
-        return view('veiculo/editar_carro', ['carro' => $carro]);
+
+        $tipo = DB::table('tipo_veiculo')
+        ->select('id','descricao_tipo')
+        ->get();
+
+        return view('veiculo/editar_carro', ['carros' => $carro, 'tipos'=>$tipo]);
     }
 
      /*  Função para atualizar os dados da Carro.
