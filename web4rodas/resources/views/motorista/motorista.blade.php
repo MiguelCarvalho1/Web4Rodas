@@ -32,6 +32,7 @@
                     <th>Telemovel</th>
                     <th>Email</th>
                     <th>Carta de Condução</th>
+                    <th>Tipo de Carta</th>
                     <th>Ações</th>
                 </tr>
             </thead>
@@ -43,7 +44,14 @@
                     <td style="text-align: justify; vertical-align: middle">{{$motorista->telemovel}}</td>
                     <td style="text-align: justify; vertical-align: middle">{{$motorista->email}}</td>
                     <td style="text-align: justify; vertical-align: middle">{{$motorista->cartaCondu}}</td>
-                    <!--td style="text-align: justify; vertical-align: middle"><a {{--$motorista->tipo_id}}>{{$motorista->tipo->descricao_tipo--}}</a></td--> 
+                    @foreach($tipoCartas as $tipoCarta)
+                    <td style="text-align: justify; vertical-align: middle">
+                        <a >
+                            {{$tipoCarta->descricao_tipo}}
+                        </a>
+                    </td> 
+                    @endforeach
+                   
                    <td style="text-align: center; vertical-align: middle"> 
                        
                         <button class="btn bg-warning text-white" style="width:40px; margin:2px"><a href="/motorista/editar_motorista/{{$motorista->id}}" style="color:white"><i class="fa fa-edit"></i></a></button>

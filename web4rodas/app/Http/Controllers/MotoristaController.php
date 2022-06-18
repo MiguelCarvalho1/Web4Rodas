@@ -2,18 +2,22 @@
 
 namespace App\Http\Controllers;
 use App\Models\Motorista;
-
+use \Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class MotoristaController extends Controller
 {
     public function motorista(){
+
+        $tipoCarta = DB::table('tipo_carta')
+        ->select('descricao_tipo')
+        ->get();
+
         $motorista= Motorista::paginate(4);
 
-      /*  $tipomotorista = motorista::where('descricao_tipo',$motorista->cartaCondu)->toArray();
-      $tipo = motorista::where('cartaCondu', $motorista->cartaCondu)->get();*/
+     
 
-    return view('motorista/motorista', ['motoristas' => $motorista]);
+    return view('motorista/motorista', ['motoristas' => $motorista,'tipoCartas'=>$tipoCarta ]);
     }
 
 
