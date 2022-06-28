@@ -21,3 +21,14 @@ criar base dados phpmyAdmin nome: web4rodas
 
 apos isso php artisan migrate//
 php artisan key:generate
+
+
+Novo Layout
+
+composer require laravel-frontend-presets/argon
+
+php artisan ui argon
+
+composer dump-autoload
+
+php artisan migrate
