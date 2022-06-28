@@ -16,7 +16,7 @@ class CarroController extends Controller
 
         $tipo = DB::table('tipo_veiculo')
         ->leftJoin('table_carro','table_carro.tipo_id','=','tipo_veiculo.id')
-        ->select('descricao_tipo')
+        ->select('tipo_veiculo.descricao_tipo')
         ->get();
 
 

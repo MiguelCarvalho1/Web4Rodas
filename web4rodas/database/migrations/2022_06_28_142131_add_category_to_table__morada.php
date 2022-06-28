@@ -13,11 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('table_codi_postal', function (Blueprint $table) {
-            $table->id('id');
+        Schema::table('table__morada', function (Blueprint $table) {
             $table->string('localidade');
-            
-             $table->timestamps();
         });
     }
 
@@ -28,6 +25,9 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('table_codi_postal');
+        Schema::table('table__morada', function (Blueprint $table) {
+            $table->dropColumn('localidade');
+            
+        });
     }
 };

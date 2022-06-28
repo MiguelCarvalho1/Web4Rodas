@@ -14,6 +14,7 @@ class CalendarioController extends Controller
      * @return response()
      */
     public function index()
+    
     {
 
             $data = Agendamentos::get(['id', 'nome', 'data_inicio', 'data_fim']);
@@ -62,4 +63,6 @@ class CalendarioController extends Controller
                 break;
         }
     }*/
+
+    
 }

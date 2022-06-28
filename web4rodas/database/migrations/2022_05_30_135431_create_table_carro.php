@@ -21,9 +21,7 @@ return new class extends Migration
             $table->integer('lotacao');
             $table->timestamps();
 
-            $table->unsignedBigInteger('motorista_id')->unsigned()->nullable();
-
-            $table->foreign('motorista_id')->references('id')->on('table_motorista')->onDelete('cascade');
+        
         });
     }
 

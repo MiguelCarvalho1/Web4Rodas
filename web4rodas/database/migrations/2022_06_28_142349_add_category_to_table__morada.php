@@ -13,16 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('table__morada', function (Blueprint $table) {
-            $table->id();
-            $table->string('rua');
-            $table->integer('n_porta');
-            $table->string('andar');
-            
-
-            
-
-            $table->timestamps();
+        Schema::table('table__morada', function (Blueprint $table) {
+            $table->string('codigoPostal');
         });
     }
 
@@ -33,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('table__morada');
+        Schema::table('table__morada', function (Blueprint $table) {
+            $table->dropColumn('codigoPostal');
+        });
     }
 };
