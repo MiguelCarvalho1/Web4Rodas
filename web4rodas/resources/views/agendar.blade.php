@@ -5,48 +5,48 @@
 @section('content')
 
 <nav class="navbar navbar-vertical fixed-right navbar-expand-md navbar-light bg-white" id="sidenav-main">
-  <div class="container-fluid">
-          <!-- Navigation -->
-          <ul class="navbar-nav">
-              <li class="nav-item">
-                  <a class="nav" data-toggle="collapse" aria-controls="navbar-examples">
-                      <i class="fab " style="color: #f4645f;"></i>
-                      <span class="nav-link-text" style="color: #f4645f;">{{ __('Agendamentos:') }}</span>
-                  </a>
-          <!-- Divider -->
-          <hr class="my-3">
-          <!-- Navigation -->
-          <ul class="navbar-nav mb-md-3">
-            <li class="nav-item">
-                <a class="nav-link" href="/calendario">
-                    <i class="bi bi-calendar"></i> Calendario
+    <div class="container-fluid">
+            <!-- Navigation -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav" data-toggle="collapse" aria-controls="navbar-examples">
+                        <i class="fab " style="color: #0b0d97;"></i>
+                        <span class="nav-link-text" style="color: #0b0d97;">{{ __('Agendamentos:') }}</span>
+                    </a>
+            <!-- Divider -->
+            <hr class="my-3">
+            <!-- Navigation -->
+            <ul class="navbar-nav mb-md-3">
+                <li class="nav-item">
+                    <a class="nav-link" href="/calendario">
+                        <i class="ni ni-calendar-grid-58"></i> Calendario
+                    </a>
+                </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/veiculo/carro">
+                          <i class="ni ni-bus-front-12"></i> Veiculos
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/motorista/motorista">
+                          <i class="ni ni-single-02"></i> Motoristas
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/agendar">
+                          <i class="ni ni-ruler-pencil"></i>Agendamentos
+                      </a>
+                  </li>
+                <div class="dropdown-divider"></div>
+                <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();
+                document.getElementById('logout.perform').submit();">
+                    <i class="ni ni-user-run"></i>
+                    <span>Logout</span>
                 </a>
-            </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="/veiculo/carro">
-                      <i class="ni ni-spaceship"></i> Veiculos
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="/motorista/motorista">
-                      <i class="bi bi-person"></i> Motoristas
-                  </a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link" href="/agendar">
-                      <i class="ni ni-ui-04"></i>Agendamentos
-                  </a>
-              </li>
-              <div class="dropdown-divider"></div>
-              <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();
-              document.getElementById('logout-form').submit();">
-                  <i class="ni ni-user-run"></i>
-                  <span>Logout</span>
-              </a>
-          </div>
-          </ul>
-      </div>
-  </div>
+            </div>
+            </ul>
+        </div>
+    </div>
 </nav>
 
 <div class="row">
