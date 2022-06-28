@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.app')
 
 
 
@@ -16,6 +16,7 @@
 </head>
 
 <body>
+    
     
     {{-- @foreach($agendamentos as $agendamento)
     

@@ -5,21 +5,6 @@
 @section('content')
 <nav class="navbar navbar-vertical fixed-right navbar-expand-md navbar-light bg-white" id="sidenav-main">
     <div class="container-fluid">
-        <!-- Toggler -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#sidenav-collapse-main" aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-            <!-- Form -->
-            <form class="mt-4 mb-3 d-md-none">
-                <div class="input-group input-group-rounded input-group-merge">
-                    <input type="search" class="form-control form-control-rounded form-control-prepended" placeholder="{{ __('Search') }}" aria-label="Search">
-                    <div class="input-group-prepend">
-                        <div class="input-group-text">
-                            <span class="fa fa-search"></span>
-                        </div>
-                    </div>
-                </div>
-            </form>
             <!-- Navigation -->
             <ul class="navbar-nav">
                 <li class="nav-item">
@@ -32,20 +17,25 @@
             <!-- Navigation -->
             <ul class="navbar-nav mb-md-3">
                 <li class="nav-item">
-                    <a class="nav-link" href="/veiculo/carro">
-                        <i class="ni ni-spaceship"></i> Veiculos
+                    <a class="nav-link" href="/calendario">
+                        <i class="bi bi-calendar"></i> Calendario
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/motorista/motorista">
-                        <i class="ni ni-palette"></i> Motoristas
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/agendamentos">
-                        <i class="ni ni-ui-04"></i>Agendamentos
-                    </a>
-                </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/veiculo/carro">
+                          <i class="ni ni-spaceship"></i> Veiculos
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/motorista/motorista">
+                          <i class="bi bi-person"></i> Motoristas
+                      </a>
+                  </li>
+                  <li class="nav-item">
+                      <a class="nav-link" href="/agendar">
+                          <i class="ni ni-ui-04"></i>Agendamentos
+                      </a>
+                  </li>
                 <div class="dropdown-divider"></div>
                 <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();
                 document.getElementById('logout-form').submit();">
@@ -124,5 +114,5 @@
 </div>
 </div>
 </div>
-<a class="btn btn-primary" href="/veiculo/criar_carro">Criar Motorista</a>
+<a class="btn btn-primary" href="/motorista/criar_motorista">Criar Motorista</a>
 @endsection
