@@ -1,59 +1,76 @@
-@extends('layouts.app')
+@extends('layouts.app', ['class' => 'bg-default'])
 
 @section('content')
+    @include('layouts.headers.guest')
 
-<div class="container-scroller">
-  <div class="row justify-content-center">
-    <div class="col-md-8">
-       <div class="card"> 
-        
-        <div class="container-fluid page-body-wrapper full-page-wrapper">
-          <div class="content-wrapper d-flex align-items-center auth px-0">
-            <div class="row w-100 mx-0">
-              <div class="col-lg-4 mx-auto">
-                <div class="auth-form-light text-left py-5 px-4 px-sm-5">
-                  <h3 class="fw-light">Login</h3>
-                  <form class="pt-3">
-                    <div class="form-group">
-                      <input type="email" class="form-control form-control-lg" id="exampleInputEmail1" placeholder="Nome">
+    <div class="container mt--8 pb-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-5 col-md-7">
+                <div class="card white">
+                    <div class="card-header bg-transparent pb-5">
+                      
+                    <div class="card-body px-lg-5 py-lg-5">
+                        <div class="text-center text-muted mb-4">
+                            Autenticar na Pagina
+                        </div>
+                        <form role="form" method="POST" action="{{ route('login') }}">
+                            @csrf
+
+                            <div class="form-group{{ $errors->has('email') ? ' has-danger' : '' }} mb-3">
+                                <div class="input-group input-group-alternative">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                                    </div>
+                                    <input class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="{{ __('Email') }}" type="email" name="email" value="{{ old('email') }}" value="admin@argon.com" required autofocus>
+                                </div>
+                                @if ($errors->has('email'))
+                                    <span class="invalid-feedback" style="display: block;" role="alert">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                            <div class="form-group{{ $errors->has('password') ? ' has-danger' : '' }}">
+                                <div class="input-group input-group-alternative">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                                    </div>
+                                    <input class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" placeholder="{{ __('Password') }}" type="password" value="secret" required>
+                                </div>
+                                @if ($errors->has('password'))
+                                    <span class="invalid-feedback" style="display: block;" role="alert">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                            <div class="custom-control custom-control-alternative custom-checkbox">
+                                <input class="custom-control-input" name="remember" id="customCheckLogin" type="checkbox" {{ old('remember') ? 'checked' : '' }}>
+                                <label class="custom-control-label" for="customCheckLogin">
+                                    <span class="text-muted">{{ __('Lembrar-me') }}</span>
+                                </label>
+                            </div>
+                            <div class="col-6 text-center">
+                                <a href="{{ route('register') }}" class="text-primary">
+                                    <small>{{ __('Criar Conta') }}</small>
+                                </a>
+                            </div>
+                           
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary my-4">{{ __('Entrar') }}</button>
+                            </div>
+                        </form>
                     </div>
-                    <div class="form-group">
-                      <input type="password" class="form-control form-control-lg" id="exampleInputPassword1" placeholder="Palavra-Passe">
-                    </div>
-                    <div class="mt-3">
-                      <a class="btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn" href="../../veiculo/carro">Entrar</a>
-                    </div>
-                    <div class="my-2 d-flex justify-content-between align-items-center">
-                      <div class="form-check">
-                        <label class="form-check-label text-muted">
-                          <input type="checkbox" class="form-check-input">
-                          Lembrar da Autenticação
-                        </label>
-                      </div>
-                      <a href="#" class="auth-link text-black">Esqueceu-se da Palavra-Passe?</a>
-                    </div>
-                    <div class="text-center mt-4 fw-light">
-                      Não tens Conta? <a href="register" class="text-primary">Regista-te</a>
-                    </div>
-                  </form>
                 </div>
-              </div>
+                <div class="row mt-3">
+                    <div class="col-6">
+                        @if (Route::has('password.request'))
+                            <a href="{{ route('password.request') }}" class="text-dark">
+                                <small>{{ __('Esqueceu-se da Palavra-Passe?') }}</small>
+                            </a>
+                        @endif
+                    </div>
+                    
+                </div>
             </div>
-          </div>
-          <!-- content-wrapper ends -->
         </div>
-
-
-        
-        </div>
-      </div>
-       
-    
-    
-  </div>
-</div>
-
-
-
-
+    </div>
 @endsection

@@ -68,7 +68,7 @@ class CarroController extends Controller
         ->select('id','descricao_tipo')
         ->get();
 
-        return view('veiculo/editar_carro', ['carros' => $carro, 'tipos'=>$tipo]);
+        return view('veiculo/editar_carro', ['carro' => $carro, 'tipos'=>$tipo]);
     }
 
      /*  Função para atualizar os dados da Carro.
