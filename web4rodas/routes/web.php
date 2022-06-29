@@ -18,7 +18,7 @@ use App\Http\Controllers\CalendarioController;
 |
 */
 	/*Carro*/
-	Route::get('/veiculo/carro', [CarroController::class, 'index']);
+	Route::get('/veiculo/carro', [CarroController::class, 'index'])->middleware('auth');
 	Route::get('/veiculo/criar_carro', [CarroController::class, 'criar_carro']);
 	Route::post('/veiculo/carro', [CarroController::class, 'store']);
 	Route::get('/veiculo/editar_carro/{id}', [CarroController::class, 'editar_carro']);
@@ -34,9 +34,11 @@ Route::get('/veiculo/carro', [CarroController::class, 'index']);
 Route::get('/motorista/motorista', [MotoristaController::class, 'motorista']);
 Route::get('/motorista/criar_motorista', [MotoristaController::class, 'criar_motorista']);
 Route::post('/motorista/motorista', [MotoristaController::class, 'store']);
+Route::get('/motorista/ver_motorista/{id}', [MotoristaController::class, 'ver_motorista']);
 Route::get('/motorista/editar_motorista/{id}', [MotoristaController::class, 'editar_motorista']);
 Route::get('/motorista/atualizar_motorista/{id}', [MotoristaController::class, 'atualizar_motorista']);
 Route::delete('/motorista/motorista/{id}', [MotoristaController::class, 'apagar_motorista']);
+
 
 
 
@@ -58,14 +60,14 @@ Route::get('/login', function () {
     return view('welcome');
 });
 
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+
 
 Auth::routes();
 
 /*Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');*/
 
 Route::group(['middleware' => 'auth'], function () {
-	/*Route::resource('user', 'App\Http\Controllers\UserController', ['except' => ['show']]);*/
-	Route::get('/logout', 'LogoutController@perform')->name('logout.perform');
-
+	
 });
 

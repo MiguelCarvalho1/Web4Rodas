@@ -36,13 +36,14 @@
                           <i class="ni ni-ruler-pencil"></i>Agendamentos
                       </a>
                   </li>
-                <div class="dropdown-divider"></div>
-                <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();
-                document.getElementById('logout.perform').submit();">
-                    <i class="ni ni-user-run"></i>
-                    <span>Logout</span>
-                </a>
-            </div>
+                  <div class="dropdown-divider"></div>
+                  <a class="nav-link" href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit();"> 
+                      <i class="ni ni-user-run"></i>Logout                       
+                  </a>
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                      {{ csrf_field() }}
+                      </form>
+              </div>
             </ul>
         </div>
     </div>
@@ -74,8 +75,8 @@
             <div class="form-group">
               <label for="tipo_id">Tipo de Veiculo:</label>
               <select name="tipo" id="tipo_id" class="from-group">
-                @foreach ($tipos as $tipo)
-                <option value="{{$tipo->id}}">{{$tipo->descricao_tipo}}</option>
+                @foreach ($tipos_id as $tipo_id)
+                <option value="{{$tipo_id->id}}">{{$tipo_id->descricao_tipo}}</option>
             @endforeach
               </select>
           </div>

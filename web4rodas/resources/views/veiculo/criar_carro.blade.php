@@ -36,13 +36,14 @@
                           <i class="ni ni-ruler-pencil"></i>Agendamentos
                       </a>
                   </li>
-                <div class="dropdown-divider"></div>
-                <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();
-                document.getElementById('logout.perform').submit();">
-                    <i class="ni ni-user-run"></i>
-                    <span>Logout</span>
-                </a>
-            </div>
+                  <div class="dropdown-divider"></div>
+                  <a class="nav-link" href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit();"> 
+                      <i class="ni ni-user-run"></i>Logout                       
+                  </a>
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                      {{ csrf_field() }}
+                      </form>
+              </div>
             </ul>
         </div>
     </div>

@@ -10,7 +10,7 @@
 
         <title>{{ config('app.name', 'Laravel Name') }}</title>
         <!-- Favicon -->
-        <link href="" rel="icon" type="image/png">
+        <link rel="icon" type="image/png" sizes="16x16" href="../../../public/img/favicon.png">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
         <!-- Extra details for Live View on GitHub Pages -->
@@ -26,7 +26,7 @@
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
             </form>
-            @include('layouts.navbars.sidebar')
+            
         @endauth
         
         <div class="main-content">

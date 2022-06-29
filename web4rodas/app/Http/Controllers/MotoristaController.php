@@ -4,20 +4,23 @@ namespace App\Http\Controllers;
 use App\Models\Motorista;
 use \Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use \Illuminate\Support\Facades\Lang;
 
 class MotoristaController extends Controller
 {
     public function motorista(){
 
-        $tipoCarta = DB::table('tipo_carta')
-        ->select('descricao_tipo')
+        $tipoCarta = DB::table('table_motorista')
+        ->leftJoin('tipo_carta','tipo_carta.id','=','table_motorista.tipo_id')
+        ->select('tipo_carta.descricao_tipo','table_motorista.id','table_motorista.nome','table_motorista.nif','table_motorista.telemovel','table_motorista.email','table_motorista.cartaCondu')
         ->get();
+        
 
-        $motorista= Motorista::paginate(4);
+        /*$motorista= Motorista::paginate(4);*/
 
      
 
-    return view('motorista/motorista', ['motoristas' => $motorista,'tipoCartas'=>$tipoCarta ]);
+    return view('motorista/motorista', ['tipoCartas'=>$tipoCarta ]);
     }
 
 
@@ -79,5 +82,16 @@ class MotoristaController extends Controller
         public function apagar_motorista($id){
             Motorista::findOrFail($id)->delete();
             return redirect('motorista/motorista')->with('msg', 'Motorista apagado com sucesso!');
+        }
+
+        public function ver_motorista($id){
+         
+        $tipoCarta = DB::table('table_motorista')
+        ->leftJoin('tipo_carta','tipo_carta.id','=','table_motorista.tipo_id')
+        ->select('tipo_carta.descricao_tipo','table_motorista.id','table_motorista.nome','table_motorista.nif','table_motorista.telemovel','table_motorista.email','table_motorista.cartaCondu')
+        ->get();
+            $motorista = motorista::findOrFail($id);
+    
+            return view('motorista/ver_motorista', ['motorista' => $motorista,'tipoCartas'=>$tipoCarta ]);
         }
 }

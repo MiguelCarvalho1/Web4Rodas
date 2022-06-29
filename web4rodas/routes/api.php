@@ -14,6 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/admin', function (Request $request) {
+Route::middleware('auth:sanctum')->get('/calendario', function (Request $request) {
     return $request->admin();
 });

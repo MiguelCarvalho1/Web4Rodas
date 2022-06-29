@@ -12,26 +12,26 @@ use App\Models\Veiculo;
 class CarroController extends Controller
 {
     public function index(){
-        $carro= Carros::paginate(4);
+       // $carro= Carros::paginate(4);
 
-        $tipo = DB::table('tipo_veiculo')
-        ->leftJoin('table_carro','table_carro.tipo_id','=','tipo_veiculo.id')
-        ->select('tipo_veiculo.descricao_tipo')
+        $tipo = DB::table('table_carro')
+        ->leftJoin('tipo_veiculo','tipo_veiculo.id','=','table_carro.tipo_id')
+        ->select('tipo_veiculo.descricao_tipo','table_carro.Marca','table_carro.modelo','table_carro.matricula','table_carro.lotacao','table_carro.id')
         ->get();
 
 
-    return view('veiculo/carro', ['carros' => $carro, 'tipos'=>$tipo]);
+    return view('veiculo/carro', ['tipos'=>$tipo]);
     }
 
 
         /*  Função responsável por renderizar a view Criar Carro.*/
         public function criar_carro(){
 
-            $tipo = DB::table('tipo_veiculo')
+            $tipo_id = DB::table('tipo_veiculo')
             ->select('id','descricao_tipo')
             ->get();
 
-            return view('veiculo/criar_carro' , ['tipos'=> $tipo]);
+            return view('veiculo/criar_carro' , ['tipos_id'=> $tipo_id]);
         }
     
         /*  Função responsável por enviar os dados para a Tabela "carro".
@@ -41,7 +41,7 @@ class CarroController extends Controller
             Redireciona para a view "Veiculo-carro" onde apresenta uma mensagem de sucesso.*/
         public function store(Request $request){
             $carro = new Carros;
-    
+            $carro -> id = $request->id;
             $carro -> marca = $request->marca;
             $carro -> modelo= $request->modelo;
             $carro -> matricula = $request->matricula;
@@ -65,11 +65,12 @@ class CarroController extends Controller
     public function editar_carro($id){
         $carro = carros::findOrFail($id);
 
-        $tipo = DB::table('tipo_veiculo')
+        
+        $tipo_id = DB::table('tipo_veiculo')
         ->select('id','descricao_tipo')
         ->get();
 
-        return view('veiculo/editar_carro', ['carro' => $carro, 'tipos'=>$tipo]);
+        return view('veiculo/editar_carro', ['carro' => $carro, 'tipos_id'=>$tipo_id]);
     }
 
      /*  Função para atualizar os dados da Carro.

@@ -33,15 +33,17 @@
                   <li class="nav-item">
                       <a class="nav-link" href="/agendar">
                           <i class="ni ni-ruler-pencil"></i>Agendamentos
+                         
                       </a>
                   </li>
-                <div class="dropdown-divider"></div>
-                <a href="{{ route('logout') }}" class="dropdown-item" onclick="event.preventDefault();
-                document.getElementById('logout.perform').submit();">
-                    <i class="ni ni-user-run"></i>
-                    <span>Logout</span>
-                </a>
-            </div>
+                  <div class="dropdown-divider"></div>
+                  <a class="nav-link" href="#" onclick="event.preventDefault();document.getElementById('logout-form').submit();"> 
+                      <i class="ni ni-user-run"></i>Logout                       
+                  </a>
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                      {{ csrf_field() }}
+                      </form>
+              </div>
             </ul>
         </div>
     </div>
@@ -72,6 +74,7 @@
         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
             <thead style="text-align: center;">
                 <tr>
+                    <th class="sorting_desc" tabindex="0" aria-controls="dataTable" rowspan="1" colspan="1" aria-label="Name: activate to sort column ascending" style="width: 102px;" aria-sort="descending">ID</th>
                     <th>Marca</th>
                     <th>Modelo</th>
                     <th>Matricula</th>
@@ -81,20 +84,21 @@
                 </tr>
             </thead>
             <tbody>
-            @foreach($carros as $carro)
+            @foreach($tipos as $carro)
                 <tr>
+                    <td style="text-align: center; vertical-align: middle">{{$carro->id}}</td>
                     <td style="text-align: justify; vertical-align: middle">{{$carro->Marca}}</td>
                     <td style="text-align: justify; vertical-align: middle">{{$carro->modelo}}</td> 
                     <td style="text-align: justify; vertical-align: middle">{{$carro->matricula}}</td>
                     <td style="text-align: justify; vertical-align: middle">{{$carro->lotacao}}</td>
                     
-                    @foreach($tipos as $tipo)
+    
                     <td style="text-align: justify; vertical-align: middle">
                         <a >
-                            {{$tipo->descricao_tipo}}
+                            {{$carro->descricao_tipo}}
                         </a>
                     </td> 
-                    @endforeach
+                    
                   
                     <td style="text-align: center; vertical-align: middle"> 
                         @method('UPDATE')
@@ -109,9 +113,9 @@
 
             </tbody>
         </table>
-        <div class="d-flex justify-content-center">
-        {{$carros->links('pagination::bootstrap-4')}}
-        </div>
+       {{--<div class="d-flex justify-content-center">
+        {{$tipos->links('pagination::bootstrap-4')}}
+        </div>--}}
     </div>
 </div>
 </div>
