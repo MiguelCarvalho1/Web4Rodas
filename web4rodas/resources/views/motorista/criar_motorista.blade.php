@@ -76,6 +76,30 @@
               <input type="text" class="form-control" id="cartaCondu" name="cartaCondu" placeholder="Carta de Condução">
           </div>
 
+          <div class="form-group">
+            <label for="rua">Rua: *</label>
+            <input type="text" class="form-control" id="rua" name="rua" placeholder="Rua">
+        </div>
+
+        <div class="form-group">
+            <label for="n_porta">Nº Porta: *</label>
+            <input type="text" class="form-control" id="n_porta" name="n_porta" placeholder="Nº Porta">
+        </div>
+
+        <div class="form-group">
+            <label for="andar">Andar: *</label>
+            <input type="text" class="form-control" id="andar" name="andar" placeholder="Andar">
+        </div>
+
+        <div class="form-group">
+            <label for="codigoPostal">Codigo-Postal: *</label>
+            <input type="text" class="form-control" id="codigoPostal" name="codigoPostal" placeholder="Codigo-Postal">
+        </div>
+        <div class="form-group">
+            <label for="localidade">Concelho: *</label>
+            <input type="text" class="form-control" id="localidade" name="localidade" placeholder="Concelho">
+        </div>
+
            
             <input type="submit" class="btn btn-primary" value="Criar motorista">
         
@@ -91,11 +115,21 @@
     var telemovel = document.forms["Form"]["telemovel"].value;
     var email = document.forms["Form"]["email"].value;
     var cartaCondu = document.forms["Form"]["cartaCondu"].value;
+    var rua = document.forms["Form"]["rua"].value;
+    var n_porta = document.forms["Form"]["n_porta"].value;
+    var andar = document.forms["Form"]["andar"].value;
+    var codigoPostal = document.forms["Form"]["codigoPostal"].value;
+    var localidade = document.forms["Form"]["localidade"].value;
     if (nome == null || nome == "", 
         nif == null || nif == "",
         telemovel == null || telemovel == "",
         email == null || email == "",
-        cartaCondu:== null || cartaCondu== "") {
+        cartaCondu:== null || cartaCondu== "",
+        rua:== null || rua== "",
+        n_porta:== null || n_porta== "",
+        andar:== null || andar== "",
+        codigoPostal:== null || codigoPostal== "",
+       localidade:== null || localidade== "") {
       alert("Por favor, preencha todos os campos obrigatórios (*)");
       return false;
     }

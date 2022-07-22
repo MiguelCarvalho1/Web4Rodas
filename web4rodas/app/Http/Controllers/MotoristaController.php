@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Motorista;
+use App\Models\Morada;
 use \Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use \Illuminate\Support\Facades\Lang;
@@ -26,6 +27,7 @@ class MotoristaController extends Controller
 
         /*  Função responsável por renderizar a view Criar Notícia.*/
         public function criar_motorista(){
+            
             return view('motorista/criar_motorista');
         }
     
@@ -43,6 +45,22 @@ class MotoristaController extends Controller
             $motorista -> email = $request->email; 
             $motorista -> cartaCondu = $request->cartaCondu;
 
+            $morada = null;
+            $moradaExist = Morada::where('rua', $request->rua)-> first();
+            
+            if($moradaExist !== null) {
+                $morada = $moradaExist;
+            }else {
+                $morada = new Morada;
+                $morada->rua = $request->rua;
+                $morada -> n_porta =$request->n_porta;
+                $morada -> andar = $request->andar;
+                $morada -> codigoPostal = $request->codigoPostal;
+                $morada -> localidade= $request->localidade;
+                $morada->save();
+            }
+
+            $motorista->morada_id = $morada->id;
           
            
     
@@ -90,8 +108,13 @@ class MotoristaController extends Controller
         ->leftJoin('tipo_carta','tipo_carta.id','=','table_motorista.tipo_id')
         ->select('tipo_carta.descricao_tipo','table_motorista.id','table_motorista.nome','table_motorista.nif','table_motorista.telemovel','table_motorista.email','table_motorista.cartaCondu')
         ->get();
+
+        $morada = DB::table('table_motorista')
+        ->leftJoin('table__morada','table__morada.id','=','table_motorista.morada_id')
+        ->select('table__morada.rua','table__morada.n_porta','table__morada.andar','table__morada.codigoPostal','table__morada.localidade','table_motorista.id','table_motorista.nome','table_motorista.nif','table_motorista.telemovel','table_motorista.email','table_motorista.cartaCondu')
+        ->get();
             $motorista = motorista::findOrFail($id);
     
-            return view('motorista/ver_motorista', ['motorista' => $motorista,'tipoCartas'=>$tipoCarta ]);
+            return view('motorista/ver_motorista', ['motorista' => $motorista,'tipoCartas'=>$tipoCarta,'moradas'=>$morada ]);
         }
 }

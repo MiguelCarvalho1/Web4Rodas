@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', $motorista -> nome)
+
 @section('title', 'Motorista')
 
 
@@ -53,58 +53,57 @@
 <!-- end Nav -->
 
 
-<h1>Ver Motoristas:{{$motorista->nome}}</h1>
+<h1>Motorista:</h1>
 <div class="all-title-box" style="display: flex;">
     <div class="color-overlay"></div>
 	<div class="container text-center">
-		<h1 style="color: rgb(20, 11, 189)">{{$motorista-> nome}}</h1>
-        <h3 style="color: rgb(20, 11, 189)">{{$motorista-> nif}}</h3>
+		<h1 style="color: rgb(22, 22, 23)">{{$motorista-> nome}}</h1>
+  
 	</div>
 </div>
-
-
-<div id="overviews" class="section lb" style="background-color: rgb(179, 155, 246)">
     <br>
     <br>    
-    <div class="container">
-            <div class="row align-items-center">
-                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                </div><!-- end col -->
+
 				
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                        <thead style="text-align: center;">
-                            <tr>
-                                <th>Nome</th>
-                                <th>Nif</th>
-                                <th>Telemovel</th>
-                                <th>Email</th>
-                                <th>Carta de Condução</th>
-                                <th>Tipo de Carta</th>
-                                <th>Ações</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        @foreach($tipoCartas as $motorista)
-                            <tr>
-                                <td style="text-align: justify; vertical-align: middle">{{$motorista->nome}}</td>
-                                <td style="text-align: justify; vertical-align: middle">{{$motorista->nif}}</td> 
-                                <td style="text-align: justify; vertical-align: middle">{{$motorista->telemovel}}</td>
-                                <td style="text-align: justify; vertical-align: middle">{{$motorista->email}}</td>
-                                <td style="text-align: justify; vertical-align: middle">{{$motorista->cartaCondu}}</td>
-                              
-                                <td style="text-align: justify; vertical-align: middle">
-                                    <a >
-                                        {{$motorista->descricao_tipo}}
-                                    </a>
-                                </td> 
-                            </tr>
+				<div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">                                 
+					<div class="message-box text-left">
+                        <h2>{{__('NIF')}}:{{$motorista->nif}}</h2>
+                        <hr>
+                        <h3>{{__('E-mail')}}: {{$motorista->email}}</h3>
+                        <hr>
+                        
+                        <h3>{{__('Telemovel')}}: {{$motorista->telemovel}}</h3>
+                        <hr>
+                        <h3>{{__('Carta de Condução')}}: {{$motorista->cartaCondu}}</h3>
+
+                        @foreach($moradas as $morada)
+                        <hr>
+                        <h3>{{__('Rua')}}: {{$morada->rua}}</h3>
+                        <hr>
+                        <hr>
+                        <h3>{{__('Nº Porta')}}: {{$morada->n_porta}}</h3>
+                        <hr>
+                        <hr>
+                        <h3>{{__('Andar')}}: {{$morada->andar}}</h3>
+                        <hr>
+                        <hr>
+                        <h3>{{__('Codigo-Postal')}}: {{$morada->codigoPostal}}</h3>
+                        <hr>
+                        <hr>
+                        <h3>{{__('Concelho')}}: {{$morada->localidade}}</h3>
                         @endforeach
-                
-			</div>
+                        <hr>
+                        <hr>
+                        
+                        <hr>
+                         
+                    </div>
+
+
+
             <br><br>
             <div class="message-box text-center">
-                <a href="/motorista/motorista" class="btn btn-light btn-radius btn-brd grd1"><span><strong>{{__('message.VoltarAtras')}}</strong></span></a>
+                <a href="/motorista/motorista" class="btn btn-primary"><span><strong>{{__('Voltar Atrás')}}</strong></span></a>
             </div>  
         </div>    
     </div>

@@ -19,14 +19,14 @@ use App\Http\Controllers\CalendarioController;
 */
 	/*Carro*/
 	Route::get('/veiculo/carro', [CarroController::class, 'index'])->middleware('auth');
-	Route::get('/veiculo/criar_carro', [CarroController::class, 'criar_carro']);
-	Route::post('/veiculo/carro', [CarroController::class, 'store']);
-	Route::get('/veiculo/editar_carro/{id}', [CarroController::class, 'editar_carro']);
-	Route::get('/veiculo/atualizar_carro/{id}', [CarroController::class, 'atualizar_carro']);
-	Route::delete('/veiculo/carro/{id}', [CarroController::class, 'apagar_carro']);
+	Route::get('/veiculo/criar_carro', [CarroController::class, 'criar_carro'])->middleware('auth');
+	Route::post('/veiculo/carro', [CarroController::class, 'store'])->middleware('auth');
+	Route::get('/veiculo/editar_carro/{id}', [CarroController::class, 'editar_carro'])->middleware('auth');
+	Route::get('/veiculo/atualizar_carro/{id}', [CarroController::class, 'atualizar_carro'])->middleware('auth');
+	Route::delete('/veiculo/carro/{id}', [CarroController::class, 'apagar_carro'])->middleware('auth');
 
 
-Route::get('/veiculo/carro', [CarroController::class, 'index']);
+Route::get('/veiculo/carro', [CarroController::class, 'index'])->middleware('auth');
 
 
 
@@ -71,3 +71,11 @@ Route::group(['middleware' => 'auth'], function () {
 	
 });
 
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
